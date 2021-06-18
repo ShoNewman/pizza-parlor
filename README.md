@@ -39,3 +39,7 @@ Expected Output:
   inputtedCrust = thin
   inputtedSauce = pesto
   inputtedToppings = ["ham", "pepperoni"]
+
+Test: "It should create a method to display all user inputs in a list"
+Code: displayOrder(ordersToDisplay);
+Expected Output: Medium, thin, pesto, ham, pepperoni

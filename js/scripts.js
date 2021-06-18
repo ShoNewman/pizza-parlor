@@ -36,6 +36,16 @@ Pizza.prototype.price = function() {
 };
 
 //User Interface Logic
+function displayOrder(ordersToDisplay) {
+  let ordersList = $('ul#contacts');
+  let htmlForOrders = '';
+
+  Object.keys(ordersToDisplay).forEach(function(key) {
+    htmlForOrders += '<li id=' ordersToDisplay.key + '>' + ordersToDisplay[key] + '</li>';
+  })
+  ordersList.html(htmlForOrders);
+}
+
 $(document).ready(function() {
   $('form#pizza-order').submit(function(event) {
     event.preventDefault();
@@ -49,6 +59,9 @@ $(document).ready(function() {
     const inputtedSize = $('select#size').val();
     const inputtedCrust = $('select#crust').val();
     const inputtedSauce = $('select#sauce').val();
-    console.log(inputtedSize, inputtedCrust, inputtedSauce, toppingsArray);
+    
+    let order = new Pizza (inputtedSize, inputtedCrust, toppingsArray, inputtedSauce) 
   }); 
+  displayOrder(pizza)
+  console.log(displayOrder(order));
 })
