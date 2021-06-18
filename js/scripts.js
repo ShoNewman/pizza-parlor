@@ -6,15 +6,24 @@ function Pizza (size, crust, toppings, sauce) {
   this.sauce = sauce;
 }
 
-let pizza1 = new Pizza("large", "thin", ["olives", "ham", "bellpepper"], "Pesto");
+let pizza1 = new Pizza("small", "thin", ["olives", "ham", "bellpepper", "anchovies", "basil"], "Pesto");
 
 Pizza.prototype.price = function() {
+  let cost;
   if (this.size === "small") {
-    return cost = 12.00;
+    cost = 12.00;
   } else if (this.size === "medium") {
-    return cost = 14.00;
+    cost = 14.00;
   } else {
-    return cost = 16.00;
+    cost = 16.00;
+  }
+  if (this.toppings.length === 3) {
+    return cost;
+  } else if (this.toppings.length > 3) {
+    let addCost = (this.toppings.length - 3) * 1;
+    return cost = cost + addCost;
+  } else {
+    return cost;
   }
 };
 
