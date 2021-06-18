@@ -6,7 +6,7 @@ function Pizza (size, crust, toppings, sauce) {
   this.sauce = sauce;
 }
 
-let pizza1 = new Pizza("small", "thin", ["olives", "ham", "bellpepper", "anchovies", "basil"], "Pesto");
+let pizza1 = new Pizza("small", "traditional", ["olives", "ham", "bellpepper", "anchovies", "basil"], "Pesto");
 
 Pizza.prototype.price = function() {
   let cost;
@@ -18,12 +18,20 @@ Pizza.prototype.price = function() {
     cost = 16.00;
   }
   if (this.toppings.length === 3) {
-    return cost;
+    cost = cost;
   } else if (this.toppings.length > 3) {
     let addCost = (this.toppings.length - 3) * 1;
-    return cost = cost + addCost;
+    cost = cost + addCost;
   } else {
-    return cost;
+    cost = cost;
   }
+  if (this.crust === "thin") {
+    cost = cost - 2;
+  } else if (this.crust === "traditional") {
+    cost = cost;
+  } else if (this.crust === "thick") {
+    cost = cost + 2;
+  }
+  return cost;
 };
 

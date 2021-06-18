@@ -21,5 +21,9 @@ Code: pizza1.price();
 Expected Output: 16.00
 
 Test: "It should create a method to increase the cost of a pizza  by $1 for every topping more than 3 that are choosen"
-Code: pizza1.price(toppings); 
+Code: pizza1.price(4 toppings); 
 Expected Output: 17.00
+
+Test: "It should create a method to adjust the cost of pizza depending on the type of crust chosen "
+Code: pizza1.price(thin); 
+Expected Output: 16.00
