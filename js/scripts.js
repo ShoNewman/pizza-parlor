@@ -14,7 +14,7 @@ Pizza.prototype.price = function() {
     cost = 12.00;
   } else if (this.size === "medium") {
     cost = 14.00;
-  } else {
+  } else if (this.size === "large") {
     cost = 16.00;
   }
   if (this.toppings.length === 3) {
