@@ -27,3 +27,15 @@ Expected Output: 17.00
 Test: "It should create a method to adjust the cost of pizza depending on the type of crust chosen "
 Code: pizza1.price(thin); 
 Expected Output: 16.00
+
+Test: "It will save user input values in variables when the form is submitted"
+Code: 
+  user input = medium
+  user input = thin
+  user input = pesto
+  user input  = ham, pepperoni
+Expected Output: 
+  inputtedSize = medium
+  inputtedCrust = thin
+  inputtedSauce = pesto
+  inputtedToppings = ["ham", "pepperoni"]

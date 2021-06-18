@@ -40,16 +40,15 @@ $(document).ready(function() {
   $('form#pizza-order').submit(function(event) {
     event.preventDefault();
 
-    let pizza = new Pizza();
+    let toppingsArray = [];
+    $('input:checkbox[name=toppings]:checked').each(function() {
+      const toppings = $(this).val();
+      toppingsArray.push(toppings);
+    });
+  
     const inputtedSize = $('select#size').val();
     const inputtedCrust = $('select#crust').val();
     const inputtedSauce = $('select#sauce').val();
-    const inputtedToppings = $('input:checkbox[name=toppings]:checked').each(function() {
-      let toppingsArray = [];
-      const toppings = $(this).val();
-      toppingsArray.push(toppings);
-      return toppingsArray;
-    });
-    console.log(inputtedToppings);
-});
+    console.log(inputtedSize, inputtedCrust, inputtedSauce, toppingsArray);
+  }); 
 })
