@@ -15,3 +15,7 @@ pizza1 {
   size: "large"
   toppings: (3) ["olives", "ham", "bellpepper"]
 }
+
+Test: "It should create a method for determine the cost of a pizza based on size of pizza"
+Code: pizza1.price(); 
+Expected Output: 16.00
