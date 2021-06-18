@@ -40,6 +40,15 @@ Expected Output:
   inputtedSauce = pesto
   inputtedToppings = ["ham", "pepperoni"]
 
-Test: "It should create a method to display all user inputs in a list"
+Test: "It should create a method to display return key value pairs in Pizza Object"
 Code: displayOrder(ordersToDisplay);
 Expected Output: Medium, thin, pesto, ham, pepperoni
+
+Test: "It should output user input and total price in the div with id = pizza-order-container"
+Code: $('#pizza-order-container').html(displayOrder(order));
+Expected Output: 
+Size: Medium
+Crust: Thin
+Sauce: Pesto
+Toppings; Ham, Pepperoni
+Total Price: $12.00

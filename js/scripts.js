@@ -6,8 +6,6 @@ function Pizza (size, crust, toppings, sauce) {
   this.sauce = sauce;
 }
 
-let pizza1 = new Pizza("small", "traditional", ["olives", "ham", "bellpepper", "anchovies", "basil"], "Pesto");
-
 Pizza.prototype.price = function() {
   let cost;
   if (this.size === "small") {
@@ -37,31 +35,33 @@ Pizza.prototype.price = function() {
 
 //User Interface Logic
 function displayOrder(ordersToDisplay) {
-  let ordersList = $('ul#contacts');
+  let ordersList = $('ul#orders');
   let htmlForOrders = '';
 
   Object.keys(ordersToDisplay).forEach(function(key) {
-    htmlForOrders += '<li id=' ordersToDisplay.key + '>' + ordersToDisplay[key] + '</li>';
+    htmlForOrders += '<li>' + key + ": " + ordersToDisplay[key] + '</li>';
   })
   ordersList.html(htmlForOrders);
 }
 
 $(document).ready(function() {
-  $('form#pizza-order').submit(function(event) {
+  $('#pizza-order-form').submit(function(event) {
     event.preventDefault();
 
     let toppingsArray = [];
+
+    const inputtedSize = $('select#size').val();
+    const inputtedCrust = $('select#crust').val();
+    const inputtedSauce = $('select#sauce').val();
     $('input:checkbox[name=toppings]:checked').each(function() {
       const toppings = $(this).val();
       toppingsArray.push(toppings);
     });
-  
-    const inputtedSize = $('select#size').val();
-    const inputtedCrust = $('select#crust').val();
-    const inputtedSauce = $('select#sauce').val();
     
-    let order = new Pizza (inputtedSize, inputtedCrust, toppingsArray, inputtedSauce) 
+    let order = new Pizza (inputtedSize, inputtedCrust, toppingsArray, inputtedSauce); 
+
+    // $('#pizza-order-container').show();
+    $('#pizza-order-container').html(displayOrder(order));
+    $('#pizza-order-container').append('<p>Total Price: $' + order.price().toFixed(2) + '</p>');
   }); 
-  displayOrder(pizza)
-  console.log(displayOrder(order));
 })
