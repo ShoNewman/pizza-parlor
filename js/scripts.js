@@ -39,7 +39,7 @@ function displayOrder(ordersToDisplay) {
   let htmlForOrders = '';
 
   Object.keys(ordersToDisplay).forEach(function(key) {
-    htmlForOrders += '<li>' + key + ": " + ordersToDisplay[key] + '</li>';
+    htmlForOrders += '<li class="list-group-item">' + key + ": " + ordersToDisplay[key] + '</li>';
   })
   ordersList.html(htmlForOrders);
 }
@@ -60,8 +60,8 @@ $(document).ready(function() {
     
     let order = new Pizza (inputtedSize, inputtedCrust, toppingsArray, inputtedSauce); 
 
-    // $('#pizza-order-container').show();
+    $('#pizza-order-container').show();
     $('#pizza-order-container').html(displayOrder(order));
-    $('#pizza-order-container').append('<p>Total Price: $' + order.price().toFixed(2) + '</p>');
+    $('ul#orders').append('<li class="list-group-item list-group-item-primary">Total Price: $' + order.price().toFixed(2) + '</li>');
   }); 
 })
