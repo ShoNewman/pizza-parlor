@@ -7,30 +7,28 @@ function Pizza (size, crust, toppings, sauce) {
 }
 
 Pizza.prototype.price = function() {
-  let cost;
   if (this.size === "small") {
-    cost = 12.00;
+    this.cost = 12.00;
   } else if (this.size === "medium") {
-    cost = 14.00;
+    this.cost = 14.00;
   } else if (this.size === "large") {
-    cost = 16.00;
+    this.cost = 16.00;
   }
   if (this.toppings.length === 3) {
-    cost = cost;
+    this.cost = this.cost;
   } else if (this.toppings.length > 3) {
-    let addCost = (this.toppings.length - 3) * 1;
-    cost = cost + addCost;
+    this.cost += (this.toppings.length - 3) * 2;
   } else {
-    cost = cost;
+    this.cost = this.cost;
   }
   if (this.crust === "thin") {
-    cost = cost - 2;
+    this.cost = this.cost - 2;
   } else if (this.crust === "traditional") {
-    cost = cost;
+    this.cost = this.cost;
   } else if (this.crust === "thick") {
-    cost = cost + 2;
+    this.cost = this.cost + 2;
   }
-  return cost;
+  return this.cost;
 };
 
 //User Interface Logic
@@ -59,9 +57,13 @@ $(document).ready(function() {
     });
     
     let order = new Pizza (inputtedSize, inputtedCrust, toppingsArray, inputtedSauce); 
+    // let orderPrice = order.price();
+
+  
 
     $('#pizza-order-container').show();
     $('#pizza-order-container').html(displayOrder(order));
-    $('ul#orders').append('<li class="list-group-item list-group-item-primary">Total Price: $' + order.price().toFixed(2) + '</li>');
+    $('ul#orders').append('<li class="list-group-item list-group-item-success">Total Price: $' + order.price() + '</li>');
+  
   }); 
 })
